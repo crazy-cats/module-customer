@@ -52,11 +52,25 @@ class Customer extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
     {
         parent::beforeSave();
 
+        if ( $this->hasData( 'group_ids' ) && is_array( $this->getData( 'group_ids' ) ) ) {
+            $this->setData( 'group_ids', implode( ',', $this->getData( 'group_ids' ) ) );
+        }
+
         $now = date( 'Y-m-d H:i:s' );
         $this->setData( 'updated_at', $now );
         if ( !$this->getId() ) {
             $this->setData( 'created_at', $now );
         }
+    }
+
+    /**
+     * @return void
+     */
+    protected function afterLoad()
+    {
+        $this->setData( 'group_ids', explode( ',', $this->getData( 'group_ids' ) ) );
+
+        parent::afterLoad();
     }
 
     /**

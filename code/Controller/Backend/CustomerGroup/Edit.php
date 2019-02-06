@@ -33,7 +33,7 @@ class Edit extends \CrazyCat\Framework\App\Module\Controller\Backend\AbstractAct
         $this->registry->register( 'current_model', $model );
 
         $pageTitle = $model->getId() ?
-                __( 'Edit Customer Group `%1` [ ID: %2 ]', [ $model->getTitle(), $model->getId() ] ) :
+                __( 'Edit Customer Group `%1` [ ID: %2 ]', [ $model->getName(), $model->getId() ] ) :
                 __( 'Create Customer Group' );
 
         $this->setPageTitle( $pageTitle )->render();
