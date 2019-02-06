@@ -46,7 +46,7 @@ class Edit extends \CrazyCat\Core\Block\Backend\AbstractEdit {
                         [ 'name' => 'mobile', 'label' => __( 'Mobile' ), 'type' => 'text' ],
                         [ 'name' => 'wechat', 'label' => __( 'WeChat' ), 'type' => 'text' ],
                         [ 'name' => 'enabled', 'label' => __( 'Enabled' ), 'type' => 'select', 'options' => [ [ 'value' => '1', 'label' => __( 'Yes' ) ], [ 'value' => '0', 'label' => __( 'No' ) ] ] ],
-                        [ 'name' => 'group_id', 'label' => __( 'Groups' ), 'type' => 'multiselect', 'options' => $this->customerGroups->toOptionArray() ],
+                        [ 'name' => 'group_id', 'label' => __( 'Customer Groups' ), 'type' => 'multiselect', 'options' => $this->customerGroups->toOptionArray() ],
                         [ 'name' => 'password', 'label' => __( 'Password' ), 'type' => 'password' ]
                 ]
             ]
