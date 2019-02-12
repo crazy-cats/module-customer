@@ -46,11 +46,35 @@ class Customer extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
     }
 
     /**
+     * @param string $field
+     * @param string $value
+     * @return boolean
+     */
+    protected function checkUnique( $field, $value )
+    {
+        $sql = sprintf( 'SELECT COUNT(*) FROM `%s` WHERE `%s` = ?', $this->mainTable, $field );
+        $binds = [ $value ];
+
+        if ( $this->getData( 'id' ) ) {
+            $sql .= ' AND `id` != ?';
+            $binds[] = $this->getData( 'id' );
+        }
+
+        return $this->conn->fetchOne( $sql, $binds ) == 0;
+    }
+
+    /**
      * @return void
      */
     protected function beforeSave()
     {
         parent::beforeSave();
+
+        foreach ( [ 'username', 'mobile', 'email', 'wechat' ] as $field ) {
+            if ( $this->hasData( $field ) && !$this->checkUnique( $field, $this->getData( $field ) ) ) {
+                throw new \Exception( __( 'Field `%1` must be unique.', $field ) );
+            }
+        }
 
         if ( $this->hasData( 'group_ids' ) && is_array( $this->getData( 'group_ids' ) ) ) {
             $this->setData( 'group_ids', implode( ',', $this->getData( 'group_ids' ) ) );
