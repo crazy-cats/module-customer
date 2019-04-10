@@ -18,11 +18,11 @@ return [
         'children' => [
             'customer/customer/index' => [
                 'label' => 'Customer List',
-                'url' => getUrl( 'customer/customer' )
+                'url' => 'customer/customer'
             ],
             'customer/customer_group/index' => [
                 'label' => 'Customer Groups',
-                'url' => getUrl( 'customer/customer_group' )
+                'url' => 'customer/customer_group'
             ]
         ]
     ]
