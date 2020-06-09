@@ -8,36 +8,35 @@
 namespace CrazyCat\Customer\Controller\Frontend\Account;
 
 use CrazyCat\Customer\Model\Session as CustomerSession;
-use CrazyCat\Framework\App\Module\Controller\Frontend\Context;
+use CrazyCat\Framework\App\Component\Module\Controller\Frontend\Context;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class Logout extends \CrazyCat\Framework\App\Module\Controller\Frontend\AbstractAction {
-
+class Logout extends \CrazyCat\Framework\App\Component\Module\Controller\Frontend\AbstractAction
+{
     /**
      * @var \CrazyCat\Customer\Model\Session
      */
     protected $customerSession;
 
-    public function __construct( CustomerSession $customerSession, Context $context )
+    public function __construct(CustomerSession $customerSession, Context $context)
     {
-        parent::__construct( $context );
+        parent::__construct($context);
 
         $this->customerSession = $customerSession;
     }
 
-    protected function run()
+    protected function execute()
     {
-        if ( $this->customerSession->isLoggedIn() ) {
+        if ($this->customerSession->isLoggedIn()) {
             $this->customerSession->clearData();
-            $this->messenger->addSuccess( __( 'Logged out successfully.' ) );
+            $this->messenger->addSuccess(__('Logged out successfully.'));
         }
 
-        $this->redirect( 'index' );
+        $this->redirect('index');
     }
-
 }

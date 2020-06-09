@@ -7,21 +7,24 @@
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
 return [
     'template' => '2columns_left',
-    'blocks' => [
+    'blocks'   => [
         'left' => [
             'customer-menu' => [
-                'class' => 'CrazyCat\Core\Block\Template',
-                'data' => [ 'template' => 'CrazyCat\Customer::account/menu' ]
+                'class' => 'CrazyCat\Base\Block\Template',
+                'data'  => ['template' => 'CrazyCat\Customer::account/menu']
             ]
         ],
         'main' => [
-            'dashboard' => [ 'class' => 'CrazyCat\Customer\Block\Frontend\Customer', 'data' => [ 'template' => 'CrazyCat\Customer::account/dashboard' ] ]
+            'dashboard' => [
+                'class' => 'CrazyCat\Customer\Block\Frontend\Customer',
+                'data'  => ['template' => 'CrazyCat\Customer::account/dashboard']
+            ]
         ]
     ]
 ];

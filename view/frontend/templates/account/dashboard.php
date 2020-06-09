@@ -8,6 +8,5 @@
 ?>
 <div class="block block-customer-dashboard">
     <div class="block-content">
-        
     </div>
 </div>

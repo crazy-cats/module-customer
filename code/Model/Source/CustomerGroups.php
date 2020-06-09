@@ -1,23 +1,22 @@
 <?php
 
 /*
- * Copyright © 2018 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
 namespace CrazyCat\Customer\Model\Source;
 
 use CrazyCat\Customer\Model\Customer\Group\Collection;
-use CrazyCat\Framework\App\ObjectManager;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class CustomerGroups {
-
+class CustomerGroups
+{
     /**
      * @var array
      */
@@ -28,9 +27,10 @@ class CustomerGroups {
      */
     private $groupCollecion;
 
-    public function __construct( ObjectManager $objectManager )
-    {
-        $this->groupCollecion = $objectManager->create( Collection::class )->addOrder( 'name' );
+    public function __construct(
+        \CrazyCat\Framework\App\ObjectManager $objectManager
+    ) {
+        $this->groupCollecion = $objectManager->create(Collection::class)->addOrder('name');
     }
 
     /**
@@ -38,13 +38,19 @@ class CustomerGroups {
      */
     public function toOptionArray()
     {
-        if ( $this->options === null ) {
+        if ($this->options === null) {
             $this->options = [];
-            foreach ( $this->groupCollecion as $groupModel ) {
-                $this->options[] = [ 'label' => sprintf( '%s ( ID: %d )', $groupModel->getData( 'name' ), $groupModel->getId() ), 'value' => $groupModel->getId() ];
+            foreach ($this->groupCollecion as $groupModel) {
+                $this->options[] = [
+                    'label' => sprintf(
+                        '%s ( ID: %d )',
+                        $groupModel->getData('name'),
+                        $groupModel->getId()
+                    ),
+                    'value' => $groupModel->getId()
+                ];
             }
         }
         return $this->options;
     }
-
 }

@@ -12,20 +12,20 @@ use CrazyCat\Framework\App\Theme\Block\Context;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class Customer extends \CrazyCat\Core\Block\Template {
-
+class Customer extends \CrazyCat\Base\Block\Template
+{
     /**
      * @var \CrazyCat\Customer\Model\Session
      */
     protected $customerSession;
 
-    public function __construct( CustomerSession $customerSession, Context $context, array $data = [] )
+    public function __construct(CustomerSession $customerSession, Context $context, array $data = [])
     {
-        parent::__construct( $context, $data );
+        parent::__construct($context, $data);
 
         $this->customerSession = $customerSession;
     }
@@ -34,5 +34,4 @@ class Customer extends \CrazyCat\Core\Block\Template {
     {
         return $this->customerSession->getCustomer();
     }
-
 }

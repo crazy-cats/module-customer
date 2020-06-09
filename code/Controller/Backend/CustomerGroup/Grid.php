@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright © 2018 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
@@ -12,15 +12,14 @@ use CrazyCat\Customer\Model\Customer\Group\Collection;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class Grid extends \CrazyCat\Core\Controller\Backend\AbstractGridAction {
-
+class Grid extends \CrazyCat\Base\Controller\Backend\AbstractGridAction
+{
     protected function construct()
     {
-        $this->init( Collection::class, GridBlock::class );
+        $this->init(Collection::class, GridBlock::class);
     }
-
 }

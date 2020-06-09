@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright © 2018 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
@@ -9,38 +9,40 @@ namespace CrazyCat\Customer\Model\Customer;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class Group extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
-
+class Group extends \CrazyCat\Framework\App\Component\Module\Model\AbstractModel
+{
     /**
      * @return void
+     * @throws \ReflectionException
      */
     protected function construct()
     {
-        $this->init( 'customer_group', 'customer_group' );
+        $this->init('customer_group', 'customer_group');
     }
 
     /**
      * @return void
+     * @throws \ReflectionException
      */
     protected function beforeSave()
     {
         parent::beforeSave();
 
-        $this->setData( 'permissions', json_encode( $this->getData( 'permissions' ) ) );
+        $this->setData('permissions', json_encode($this->getData('permissions')));
     }
 
     /**
      * @return void
+     * @throws \ReflectionException
      */
     protected function afterLoad()
     {
-        $this->setData( 'permissions', json_decode( $this->getData( 'permissions' ), true ) );
+        $this->setData('permissions', json_decode($this->getData('permissions'), true));
 
         parent::afterLoad();
     }
-
 }

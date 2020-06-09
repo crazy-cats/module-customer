@@ -1,28 +1,28 @@
 <?php
 
 /*
- * Copyright © 2018 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Customer
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Customer
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
 return [
     'customer' => [
-        'label' => 'Customer',
+        'label'      => 'Customer',
         'sort_order' => 110,
-        'children' => [
-            'customer/customer/index' => [
+        'children'   => [
+            'customer/customer/index'       => [
                 'label' => 'Customer List',
-                'url' => 'customer/customer'
+                'url'   => 'customer/customer'
             ],
             'customer/customer_group/index' => [
                 'label' => 'Customer Groups',
-                'url' => 'customer/customer_group'
+                'url'   => 'customer/customer_group'
             ]
         ]
     ]
