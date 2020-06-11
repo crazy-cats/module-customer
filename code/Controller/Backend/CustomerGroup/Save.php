@@ -8,7 +8,7 @@
 namespace CrazyCat\Customer\Controller\Backend\CustomerGroup;
 
 use CrazyCat\Customer\Model\Customer\Group as Model;
-use CrazyCat\Framework\App\Url;
+use CrazyCat\Framework\App\Io\Http\Url;
 
 /**
  * @category CrazyCat

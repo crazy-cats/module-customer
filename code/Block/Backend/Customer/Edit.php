@@ -46,8 +46,14 @@ class Edit extends \CrazyCat\Base\Block\Backend\AbstractEdit
                         'type'  => 'hidden'
                     ],
                     [
-                        'name'       => 'name',
-                        'label'      => __('Name'),
+                        'name'       => 'first_name',
+                        'label'      => __('First Name'),
+                        'type'       => 'text',
+                        'validation' => ['required' => true]
+                    ],
+                    [
+                        'name'       => 'last_name',
+                        'label'      => __('Last Name'),
                         'type'       => 'text',
                         'validation' => ['required' => true]
                     ],
@@ -79,10 +85,11 @@ class Edit extends \CrazyCat\Base\Block\Backend\AbstractEdit
                         'options' => [['value' => '1', 'label' => __('Yes')], ['value' => '0', 'label' => __('No')]]
                     ],
                     [
-                        'name'    => 'group_id',
+                        'name'    => 'group_ids',
                         'label'   => __('Customer Groups'),
                         'type'    => 'multiselect',
-                        'options' => $this->customerGroups->toOptionArray()
+                        'options' => $this->customerGroups->toOptionArray(),
+                        'validation' => ['required' => true]
                     ],
                     [
                         'name'  => 'password',
