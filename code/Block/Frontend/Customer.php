@@ -8,7 +8,7 @@
 namespace CrazyCat\Customer\Block\Frontend;
 
 use CrazyCat\Customer\Model\Session as CustomerSession;
-use CrazyCat\Framework\App\Theme\Block\Context;
+use CrazyCat\Framework\App\Component\Theme\Block\Context;
 
 /**
  * @category CrazyCat
