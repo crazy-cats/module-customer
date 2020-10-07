@@ -15,15 +15,19 @@ return [
     'template' => '2columns_left',
     'blocks'   => [
         'left' => [
-            'customer-menu' => [
-                'class' => 'CrazyCat\Base\Block\Template',
-                'data'  => ['template' => 'CrazyCat\Customer::account/menu']
+            'children' => [
+                'customer-menu' => [
+                    'class' => 'CrazyCat\Base\Block\Template',
+                    'data'  => ['template' => 'CrazyCat\Customer::account/menu']
+                ]
             ]
         ],
         'main' => [
-            'dashboard' => [
-                'class' => 'CrazyCat\Customer\Block\Frontend\Customer',
-                'data'  => ['template' => 'CrazyCat\Customer::account/edit']
+            'children' => [
+                'dashboard' => [
+                    'class' => 'CrazyCat\Customer\Block\Frontend\Customer',
+                    'data'  => ['template' => 'CrazyCat\Customer::account/edit']
+                ]
             ]
         ]
     ]
